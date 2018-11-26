@@ -7,6 +7,7 @@
     "build": "vue-cli-service build"
   },
   "dependencies": {
+    "element-ui": "^2.4.11",
     "vue": "^2.5.17",
     "vue-router": "^3.0.1",
     "vuex": "^3.0.1"
@@ -14,6 +15,8 @@
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.1.1",
     "@vue/cli-service": "^3.1.4",
-    "vue-template-compiler": "^2.5.17"
+    "vue-cli-plugin-element": "^1.0.0",
+    "vue-template-compiler": "^2.5.17",
+    "webpack-chain": "^5.0.1"
   }
 }
