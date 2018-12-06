@@ -1,13 +1,13 @@
 <template>
-  <div>
-    <el-card shadow="hover" :body-style="{ padding: '0px' }">
+  <a :href="url" target="view_window">
+    <el-card shadow="hover" :body-style="{ padding: '0px' }" >
       <div class="pad">
         <el-row :gutter="20">
           <el-col :span="4">
             <div class="grid-content bg-purple">
               <img
-                src="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
-                alt="coderunner"
+                :src="imgUrl"
+                :alt="imgAlt"
                 width="48"
                 height="48"
                 class="img"
@@ -16,21 +16,20 @@
           </el-col>
           <el-col :span="14">
             <div class="grid-content bg-purple">
-              <a href="#">在线运行代码</a>
+              <span class="title">{{title}}</span>
             </div>
           </el-col>
-
           <el-col :span="6">
             <div class="grid-content bg-purple">
-                <a href="#" class = "type">[开发类]</a>
+                <span class = "type">[{{toolClass}}]</span>
             </div>
           </el-col>
         </el-row>
         <hr>
-        <span>工具说明</span>
+        <span class="description">{{description}}</span>
       </div>
     </el-card>
-  </div>
+  </a>
 </template>
 
 
@@ -40,6 +39,14 @@ export default {
     return {
       currentDate: new Date()
     };
+  },
+  props:{
+    imgUrl : String,
+    imgAlt : String,
+    title : String,
+    toolClass:String,
+    url : String,
+    description : String
   }
 }
 </script>
@@ -57,16 +64,25 @@ export default {
     border-radius: 5px;
     transition: box-shadow 0.3s ease-in-out;
 }
-.img{
+/* .img{
     background-repeat: no-repeat;
     background-image: url("../assets/sadwdawgrgt.png");
     background-position: -150px -150px;
-}
+} */
 .pad{
     padding: 10px 10px
 }
 .type{
     font-size: 10px;
-    line-height: 60px
+    line-height: 60px;
+}
+.title{
+  color: #000;
+  font-size: 16px;
+  line-height: 60px;
+  text-decoration: none;
+}
+.description{
+  font-size: 12px;
 }
 </style>

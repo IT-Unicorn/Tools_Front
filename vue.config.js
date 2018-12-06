@@ -1,12 +1,12 @@
 const path = require('path');
-
+const webpack = require('webpack')
 function resolve(dir) {
     return path.join(__dirname, dir)
 }
 module.exports = {
     lintOnSave: true,
+    baseUrl: './',
     chainWebpack: (config) => {
-
         config.resolve.alias
         .set('@', resolve('src'))
         .set('assets', resolve('src/assets'))
@@ -14,5 +14,15 @@ module.exports = {
         .set('layout', resolve('src/layout'))
         .set('base', resolve('src/base'))
         .set('static', resolve('src/static'))
-    }
+    },
+    configureWebpack: {
+        plugins: [
+            new webpack.ProvidePlugin({
+                $: "jquery",
+                jQuery: "jquery",
+                jquery: "jquery",
+                "window.jQuery": "jquery"
+            })
+        ]
+      }
 }
